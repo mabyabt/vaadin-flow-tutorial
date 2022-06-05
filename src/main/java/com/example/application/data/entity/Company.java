@@ -1,13 +1,14 @@
 package com.example.application.data.entity;
 
-import com.example.application.data.AbstractEntity;
-import org.hibernate.annotations.Formula;
-
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+
+import com.example.application.data.AbstractEntity;
+import org.hibernate.annotations.Formula;
 
 @Entity
 public class Company extends AbstractEntity {
@@ -16,6 +17,9 @@ public class Company extends AbstractEntity {
 
     @OneToMany(mappedBy = "company")
     private List<Contact> employees = new LinkedList<>();
+
+    @Formula("(select count(c.id) from Contact c where c.company_id = id)")
+    private int employeeCount;
 
     public String getName() {
         return name;
@@ -33,13 +37,7 @@ public class Company extends AbstractEntity {
         this.employees = employees;
     }
 
-
-    @Formula("(select count(c.id) from Contact c where c.company_id = id)")
-    private int employeeCount;
-
     public int getEmployeeCount(){
         return employeeCount;
     }
 }
-
-
