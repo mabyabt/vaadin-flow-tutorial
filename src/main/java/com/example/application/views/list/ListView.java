@@ -4,7 +4,6 @@ import com.example.application.data.entity.Company;
 import com.example.application.data.entity.Contact;
 import com.example.application.data.entity.Status;
 import com.example.application.data.service.CrmService;
-//import com.example.application.views.MainLayout;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -55,7 +54,7 @@ public class ListView extends VerticalLayout {
         updateList();
         closeEditor();
         grid.asSingleSelect().addValueChangeListener(event ->
-                editContact(event.getValue()));
+            editContact(event.getValue()));
     }
 
     private void configureGrid() {

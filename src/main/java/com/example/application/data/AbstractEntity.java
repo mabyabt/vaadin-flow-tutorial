@@ -1,6 +1,5 @@
 package com.example.application.data;
 
-import java.util.UUID;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -10,13 +9,13 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue
-    private UUID id;
+    private Integer id;
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
